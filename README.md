@@ -17,7 +17,7 @@ install the necessary dependencies (the node_modules folder) and start it with t
 ```bash
 npm install 
 npm run dev
-2. for the server side part :
+3. for the server side part :
 install the necessary dependencies (the node_modules folder) and start it with the right command
 ```bash
 npm install 
