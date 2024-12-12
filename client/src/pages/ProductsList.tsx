@@ -1,18 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export const ProductsList = () => {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const fetchProducts = async () => {
     const response = await axios.get("http://localhost:3000/products");
@@ -41,6 +38,12 @@ export const ProductsList = () => {
     );
   }
 
+
+  const filteredProducts = data?.filter((product: { title: string; description: string }) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const handleNavigate = (id: number) => {
     navigate(`/product/${id}`);
   };
@@ -48,8 +51,18 @@ export const ProductsList = () => {
   return (
     <div className="p-4 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Product List</h1>
+
+      {/* Search input */}
+      <input
+        type="text"
+        className="w-full p-2 border rounded-md mb-6"
+        placeholder="Search products..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+
       <div className="space-y-4">
-        {data?.map(
+        {filteredProducts?.map(
           (product: { id: number; title: string; description: string }) => (
             <Card
               key={product.id}
