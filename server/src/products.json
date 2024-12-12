@@ -1,0 +1,26 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "category": "smartphones"
+      },
+      {
+        "id": 2,
+        "title": "Samsung Galaxy S21",
+        "description": "Newest Samsung flagship phone",
+        "price": 799,
+        "category": "smartphones"
+      },
+      {
+        "id": 3,
+        "title": "MacBook Pro",
+        "description": "Apple MacBook Pro with M1 chip",
+        "price": 1299,
+        "category": "laptops"
+      }
+    ]
+  }
+  
