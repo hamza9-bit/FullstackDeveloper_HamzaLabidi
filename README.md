@@ -15,10 +15,11 @@ This is a simple repository containing both frontend and backend for a full-stac
 2. For the client side part :
 install the necessary dependencies (the node_modules folder) and start it with the right command
 ```bash
-npm install 
-npm run dev
+   npm install 
+   npm run dev
+
 3. for the server side part :
 install the necessary dependencies (the node_modules folder) and start it with the right command
 ```bash
-npm install 
-npm start
+   npm install 
+   npm start
